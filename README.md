@@ -1,4 +1,4 @@
-# Applio App macOS 1.0.2. 🍏
+# Applio App macOS 🍏
 **Version**: *1.0.2*
 
 ## Requisitos:
