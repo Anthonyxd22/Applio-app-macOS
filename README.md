@@ -1,5 +1,4 @@
 [![For-Mac-OS-2.png](https://i.postimg.cc/tJpVyhFm/For-Mac-OS-2.png)](https://postimg.cc/PpVqQv3m)
-![BADGE](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
 ![BADGE2](https://img.shields.io/badge/mac%20os-000000?style=for-the-badge&logo=apple&logoColor=white)
 ![badge3](https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)
 ![Badge4](https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)
@@ -10,11 +9,10 @@ Applio is a powerful voice conversion tool focused on simplicity, quality, and p
 
 ## Requirements:
 - [Python  3.10.0](https://www.python.org/downloads/release/python-3100/) (Stable) 🐍
-- A Mac with M1 processor and upwards
+- A Mac with an M1 and higher M2 processor can also be used on any Mac with any processor
 
 - ## Achievements to be accomplished
-- Being able to train on a Mac integrating MLX
-- Ubuntu/Linux Support
+- Being able to train on a Mac and inferences
 
 - # Getting Started
 - ## Install Python
@@ -85,8 +83,3 @@ If you prefer not to use a package manager, you can download Python directly fro
 
 3. **Verify the installation**:
    - Open the Terminal and run:
-     ```bash
-     python3 --version
-     ```
-
-  
