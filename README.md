@@ -13,8 +13,7 @@ Applio is a powerful voice conversion tool focused on simplicity, quality, and p
 - A Mac with M1 processor and upwards
 
 - ## Achievements to be accomplished
-- Being able to train on a Mac integrating MLX
-- Ubuntu/Linux Support
+- Being able to train on a Mac 
 
 - # Getting Started
 - ## Install Python
