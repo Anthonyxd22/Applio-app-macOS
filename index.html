@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applio</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #e0e0e0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 20px;
+            margin: 10px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .button:hover {
+            background-color: #555;
+            transform: scale(1.05);
+        }
+
+        .button:active {
+            background-color: #222;
+            transform: scale(0.98);
+        }
+
+        .button img {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+        }
+
+        .log {
+            width: 90%;
+            max-width: 800px;
+            height: 300px;
+            overflow-y: auto;
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .log p {
+            margin: 0;
+            padding: 5px 0;
+            border-bottom: 1px solid #333;
+        }
+
+        .log p:last-child {
+            border-bottom: none;
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Applio</h1>
+    <button id="cloneRepo" class="button">
+        <img src="assets/iconodonwload.png" alt="Download Icon">
+        Donwload
+    </button>
+    <button id="startApp" class="button">
+        <img src="assets/runappiconoapplio.png" alt="Run App Icon">
+        Start Applio
+    </button>
+    <div class="log fade-in" id="logOutput"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const logOutput = document.querySelector('#logOutput');
+
+            function appendLog(message) {
+                const logEntry = document.createElement('p');
+                logEntry.textContent = message;
+                logOutput.appendChild(logEntry);
+                logOutput.scrollTop = logOutput.scrollHeight;
+            }
+
+            const cloneRepoBtn = document.querySelector('#cloneRepo');
+            const startAppBtn = document.querySelector('#startApp');
+
+            cloneRepoBtn.addEventListener('click', () => {
+                appendLog('Clonando repositorio...');
+                window.api.cloneRepo()
+                    .then(response => appendLog('Repositorio clonado: ' + response))
+                    .catch(err => appendLog('Error: ' + err));
+            });
+
+            startAppBtn.addEventListener('click', () => {
+                appendLog('Iniciando aplicación...');
+                window.api.startApp()
+                    .then(response => appendLog(response))
+                    .catch(err => appendLog('Error: ' + err));
+            });
+
+            window.api.onLogUpdate((message) => {
+                appendLog(message);
+            });
+        });
+    </script>
+</body>
+</html>

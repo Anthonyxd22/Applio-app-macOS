@@ -1,0 +1,48 @@
+{
+  "name": "Applio",
+  "version": "1.0.5",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "build-deb": "electron-builder --linux --x64 --deb",
+    "build-macos": "electron-builder --mac --x64 --arm64"
+  },
+  "devDependencies": {
+    "electron": "^26.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "iahispano",
+    "mac": {
+      "category": "public.app-category.utilities",
+      "icon": "assets/Applioicono.png",
+      "target": [
+        "dmg",
+        "pkg"
+      ],
+      "defaultArch": "universal"
+    },
+    "linux": {
+      "target": [
+        "deb",
+        "appImage"
+      ],
+      "icon": "assets/Applioicono.png",
+      "maintainer": "Anthonydiazjorges <support@applio.org>",
+      "defaultArch": "x64"  
+    },
+    "files": [
+      "**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "assets/",
+        "to": "assets/"
+      }
+    ]
+  },
+  "homepage": "https://applio.org",
+  "author": "Anthonydiazjorges <support@applio.org>"
+}
